@@ -1,0 +1,296 @@
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinea los elementos al inicio y al final del contenedor */
+    background-color: white;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    width: 40px;
+    margin-right: 15px; /* Ajuste para evitar un espacio innecesario */
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Asegura que los botones de navegación se distribuyan correctamente */
+}
+
+.nav-button-select, .nav-button {
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.nav-button-select {
+    background-color: black;
+    color: white;
+}
+
+.nav-button {
+    background-color: white;
+    color: #333;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #f0f0f0;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Esto hace que el contenedor del buscador ocupe todo el espacio restante */
+    margin: 0 15px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.search-box:hover {
+    background-color: #e0e0e0;
+}
+
+.search-box input {
+    flex: 1; /* Esto hace que el campo de búsqueda ocupe todo el espacio dentro del contenedor */
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+    border-radius: 20px;
+    transition: border-color 0.3s;
+    font-weight: bold;
+}
+
+.search-box input:focus {
+    border-color: #0F6BDB;
+    outline: none;
+}
+
+.search-box i {
+    color: #555;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.icon-button {
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+}
+
+.icon-button:hover {
+    background-color: #f0f0f0;
+}
+
+.main {
+    padding: 20px;
+}
+
+.container {
+    column-count: 3;
+    column-gap: 1rem;
+    padding: 1rem;
+}
+
+.item {
+    position: relative;
+    margin-bottom: 1rem;
+    break-inside: avoid;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+.button {
+    background-color: #0F6BDB;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #81B6F7;
+}
+
+.button-white {
+    background-color: white;
+    color: grey;
+}
+
+.button-white:hover {
+    background-color: lightgrey;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        column-count: 1;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-buttons {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-box {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .icon-button {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 30px;
+        margin-right: 10px;
+    }
+
+    .nav-button-select, .nav-button {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .search-box input {
+        font-size: 14px;
+    }
+
+    .icon-button {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+/* Agrega estas reglas al CSS */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px; /* Ajusta el tamaño según necesites */
+    background-color: #DCE7FC;
+    color: #002060;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Posición por encima del botón */
+    left: 50%;
+    margin-left: -60px; /* Centra el tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip.active .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    background-color: #0F6BDB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+ a {
+color: inherit;
+text-decoration: none;
+background-color: transparent;
+border: none;
+outline: none;
+}
